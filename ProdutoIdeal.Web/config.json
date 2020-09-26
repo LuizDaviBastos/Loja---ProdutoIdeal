@@ -1,0 +1,8 @@
+{
+  "ConnectionStrings": {
+
+    "MySqlConnectionBase": "Server=localhost;Database=Banco01;Uid=root;Pwd=1234;",
+    "MySqlConnectionVirtual": "Server=db4free.net;Database=dbeasy;Uid=luizdavi;Pwd=80849903D"
+  }
+
+}

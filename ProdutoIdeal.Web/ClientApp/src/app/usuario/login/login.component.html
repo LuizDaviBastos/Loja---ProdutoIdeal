@@ -1,0 +1,68 @@
+<div class=" card offset-3 col-6">
+  <div class="card-body">
+    <h1 class="h4 card-title text-center text-black-50">Login Cliente</h1>
+    <form class="mb-2">
+
+      <div class="form-group">
+        <label for="email" class="sr-only">Email</label>
+
+        <input name="email"
+               id="email"
+               class="form-control"
+               [ngClass]="{
+               'is-valid': email.valid && (email.dirty || email.touched),
+               'is-invalid': email.invalid && (email.dirty || email.touched)
+               }"
+               type="text"
+               placeholder="Digite seu E-mail"
+               [(ngModel)]="usuario.email"
+               #email="ngModel"
+               required
+               email />
+
+        <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || senha.touched)">
+
+          <div *ngIf="email.errors.email">Formato de email inválido</div>
+          <div *ngIf="email.errors.required">Email é obrigatório</div>
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="senha" class="sr-only">Senha</label>
+
+        <input name="senha"
+               id="senha"
+               class="form-control"
+               [ngClass]="{
+               'is-valid': (senha.valid && (senha.dirty || senha.touched)),
+               'is-invalid' : (senha.invalid && (senha.dirty || senha.touched))
+               }"
+               type="password"
+               placeholder="******"
+               [(ngModel)]="usuario.senha"
+               #senha="ngModel"
+               required />
+
+        <div class="invalid-feedback" *ngIf="senha.invalid && (email.dirty || senha.touched)">
+
+          <div *ngIf="senha.errors.required">Senha é obrigatório</div>
+
+        </div>
+
+      </div>
+
+      <button class="form-control btn btn-success" (click)="entrar()" [disabled]="ativaSpinner">
+        <span class="spinner-border spinner-border-sm" *ngIf="ativaSpinner"></span>
+        <div *ngIf="ativaSpinner == false">Login</div>
+        
+      </button>
+
+    </form>
+    <div class="alert alert-danger" *ngIf="mensagemError != null">{{mensagemError}}</div>
+    <a class="text-info pointer-event">Cadastrar-se</a>
+  </div>
+</div>
+
+
